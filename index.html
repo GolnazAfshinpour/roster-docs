@@ -3,150 +3,221 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Roster Theme — Documentation & Support</title>
-<meta name="description" content="Documentation, FAQ, and support for Roster, the booking-first Shopify theme for service businesses by Golnaz Design Co.">
+<title>Roster theme documentation and support</title>
+<meta name="description" content="How to set up Roster, the Shopify theme for salons, spas, barbers and studios that is built for booking apps. Setup, booking, sections, FAQ and support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAF6F0; --bg-2: #F1E8DC; --ink: #33291F; --ink-soft: rgba(51,41,31,.72);
-    --accent: #4A3B2C; --clay: #A85A38; --radius: 12px;
+    --paper: #F4EEE6; --surface: #E9D6C8; --ink: #221A14; --ink-soft: #5A4C40;
+    --accent: #7A2E22; --rule: rgba(34, 26, 20, 0.16); --radius: 4px;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 "Work Sans", system-ui, sans-serif; }
-  h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 600; line-height: 1.15; }
-  a { color: var(--clay); }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
-  header.hero { background: var(--bg-2); padding: 72px 0 56px; text-align: center; }
-  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0 0 10px; }
-  .hero p { color: var(--ink-soft); max-width: 560px; margin: 0 auto; }
-  .kicker { letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; color: var(--clay); font-weight: 600; }
-  nav.toc { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 18px 0; border-bottom: 1px solid rgba(51,41,31,.1); }
-  nav.toc a { text-decoration: none; font-weight: 500; color: var(--ink); }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 "Schibsted Grotesk", system-ui, sans-serif; }
+  h1, h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; line-height: 1.1; }
+  h3 { font-size: 1.05rem; margin: 0 0 6px; }
+  a { color: var(--accent); text-underline-offset: 0.2em; }
+  a:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 16px; top: 16px; background: var(--paper); padding: 8px 12px; z-index: 2; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  header.hero { border-bottom: 1px solid var(--rule); padding: 64px 0 40px; }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4rem); margin: 8px 0 12px; }
+  .hero p { color: var(--ink-soft); max-width: 620px; margin: 0; }
+  .kicker { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.75rem; color: var(--accent); font-weight: 700; }
+  nav.toc { display: flex; gap: 6px 22px; flex-wrap: wrap; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+  nav.toc a { color: var(--ink); text-decoration: none; font-weight: 500; padding: 10px 0; }
+  nav.toc a:hover { text-decoration: underline; }
   section { padding: 48px 0 8px; }
-  section h2 { font-size: 1.9rem; margin: 0 0 6px; }
-  .lede { color: var(--ink-soft); margin-top: 0; }
-  .card { background: #fff9f0; border: 1px solid rgba(51,41,31,.09); border-radius: var(--radius); padding: 20px 24px; margin: 16px 0; }
-  .card h3 { margin: 0 0 6px; font-size: 1.15rem; font-family: "Work Sans", sans-serif; font-weight: 600; }
-  .card p, .card ol, .card ul { margin: 6px 0; color: var(--ink-soft); }
-  code { background: var(--bg-2); border-radius: 5px; padding: 1px 7px; font-size: .9em; }
-  details { border-bottom: 1px solid rgba(51,41,31,.1); padding: 14px 0; }
-  details summary { font-weight: 600; cursor: pointer; }
-  details p { color: var(--ink-soft); }
-  form .row { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+  section h2 { font-size: 2.3rem; margin: 0 0 8px; }
+  .lede { color: var(--ink-soft); margin-top: 0; max-width: 680px; }
+  .step { border-top: 1px solid var(--rule); padding: 18px 0; }
+  .step p, .step ol, .step ul { margin: 6px 0; color: var(--ink-soft); }
+  .grid { display: grid; gap: 0 32px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  code { background: var(--surface); border-radius: 3px; padding: 1px 6px; font-size: 0.88em; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95rem; }
+  th, td { text-align: start; padding: 10px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 700; }
+  .table-wrap { overflow-x: auto; }
+  details { border-bottom: 1px solid var(--rule); }
+  details summary { font-weight: 700; cursor: pointer; padding: 16px 0; min-height: 48px; }
+  details p { color: var(--ink-soft); margin: 0 0 16px; }
+  form .row { display: grid; gap: 0 16px; grid-template-columns: 1fr 1fr; }
   @media (max-width: 640px) { form .row { grid-template-columns: 1fr; } }
-  label { display: block; font-weight: 500; font-size: .9rem; margin: 14px 0 4px; }
-  input, textarea { width: 100%; padding: 11px 14px; border: 1px solid rgba(51,41,31,.35); border-radius: 6px; background: #fff; font: inherit; color: var(--ink); }
-  textarea { min-height: 130px; resize: vertical; }
-  button { background: var(--accent); color: var(--bg); border: 0; border-radius: 6px; padding: 13px 28px; font: 600 1rem "Work Sans", sans-serif; letter-spacing: .05em; cursor: pointer; margin-top: 18px; }
-  footer { margin-top: 64px; padding: 28px 0; background: var(--bg-2); color: var(--ink-soft); font-size: .85rem; text-align: center; }
+  label { display: block; font-weight: 500; font-size: 0.92rem; margin: 16px 0 6px; }
+  input, textarea { width: 100%; min-height: 48px; padding: 11px 14px; border: 1px solid rgba(34, 26, 20, 0.45); border-radius: var(--radius); background: #fff; font: inherit; color: var(--ink); }
+  textarea { min-height: 140px; resize: vertical; }
+  button { background: var(--accent); color: #F7EFE9; border: 0; border-radius: var(--radius); min-height: 48px; padding: 12px 28px; font: 700 1rem "Schibsted Grotesk", sans-serif; cursor: pointer; margin-top: 20px; }
+  .note { color: var(--ink-soft); font-size: 0.9rem; }
+  footer { margin-top: 64px; padding: 28px 0; border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: 0.88rem; }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="hero">
   <div class="wrap">
-    <div class="kicker">Roster · by Golnaz Design Co</div>
-    <h1>Theme documentation &amp; support</h1>
-    <p>Everything you need to set up Roster, the booking-first Shopify theme for salons, spas, and service businesses.</p>
+    <div class="kicker">Roster · Shopify theme</div>
+    <h1>Documentation and support</h1>
+    <p>Roster is a Shopify theme for salons, spas, barbers and studios, built for booking apps. Your services, team, hours and retail live on one store, and booking happens in the tool you already use.</p>
   </div>
 </header>
 
-<nav class="toc">
+<nav class="toc wrap" aria-label="Contents">
   <a href="#start">Getting started</a>
-  <a href="#booking">Booking setup</a>
-  <a href="#staff">Staff &amp; metaobjects</a>
+  <a href="#booking">Booking</a>
+  <a href="#services">Services</a>
+  <a href="#cart">Cart</a>
+  <a href="#team">Team</a>
   <a href="#sections">Sections</a>
   <a href="#faq">FAQ</a>
   <a href="#support">Support</a>
 </nav>
 
-<main class="wrap">
+<main id="main" class="wrap">
   <section id="start">
     <h2>Getting started</h2>
-    <p class="lede">Roster works out of the box — these three steps activate the booking experience.</p>
-    <div class="card">
-      <h3>1 · Create your services as products</h3>
-      <p>Each service (haircut, massage, class…) is a Shopify product. In the product's <strong>Inventory</strong> section untick <em>Track quantity</em>, and in <strong>Shipping</strong> untick <em>This is a physical product</em>. Use variants for tiers, e.g. <code>60 min / 90 min</code>.</p>
+    <p class="lede">Three settings make the theme yours. Everything else is optional.</p>
+    <div class="step">
+      <h3>1. Set where Book goes</h3>
+      <p>Open <strong>Theme settings → Booking</strong> and paste your booking link: a booking page from Fresha, Vagaro, Square, GlossGenius or Calendly, or a collection of your service products if you use a Shopify booking app. Every Book button in the theme (header, menu on phones, booking bar, team cards, service menu) follows this one setting.</p>
     </div>
-    <div class="card">
-      <h3>2 · Assign the service template</h3>
-      <p>On each service product, set <strong>Theme template → service</strong> (right sidebar). This activates the booking form layout.</p>
+    <div class="step">
+      <h3>2. Add your services as products</h3>
+      <p>Create each service as a product. In the product's <strong>Shipping</strong> settings, turn off <em>This is a physical product</em>. Roster then shows it as a service everywhere: a "Book now" button, its length, and no quantity, stock or shipping details. See <a href="#services">Services</a>.</p>
     </div>
-    <div class="card">
-      <h3>3 · Optional: duration &amp; “from” pricing</h3>
-      <p>Under <strong>Settings → Custom data → Products</strong>, add definitions <code>custom.duration_minutes</code> (integer) and <code>custom.price_from</code> (true/false). Roster shows durations in the service menu and prefixes prices with “From” automatically.</p>
+    <div class="step">
+      <h3>3. Add your hours and address</h3>
+      <p>On the home page, the <strong>Hours and location</strong> section holds your weekly hours, holiday hours, phone and address. It shows a live "Open now" badge and tells search engines about your business.</p>
     </div>
   </section>
 
   <section id="booking">
-    <h2>How bookings work</h2>
-    <p class="lede">Customers pick a date, time window, staff member, and answer your intake questions on the product page. Their choices attach to the order as line-item properties — visible in the cart, at checkout, and on the order in your admin. No extra apps required.</p>
-    <div class="card">
-      <h3>Configure the form</h3>
-      <p>Theme editor → a product using the <em>service</em> template → <strong>Booking form</strong> block: toggle date/time/staff, set your time windows. Add <strong>Intake question</strong> blocks for anything you need to know in advance (single line, multi-line, or checkbox; optionally required).</p>
+    <h2>Booking</h2>
+    <p class="lede">Roster does not take bookings itself. It gives your booking tool the best possible home, in one of three ways.</p>
+    <div class="grid">
+      <div class="step">
+        <h3>A link to your booking tool</h3>
+        <p>Set the link in <strong>Theme settings → Booking</strong>. Choose whether it opens in a new tab.</p>
+      </div>
+      <div class="step">
+        <h3>A Shopify booking app</h3>
+        <p>Install the app, then add its block to the product page in the theme editor. Roster keeps the product form standard, never replaces the buy button when a variant changes, and refreshes its cart when the app adds a booking, so app labels such as "Select a time" stay in place.</p>
+      </div>
+      <div class="step">
+        <h3>An embedded booking widget</h3>
+        <p>Create a page, choose the <strong>book</strong> template, and paste your tool's embed code into the <strong>Booking</strong> section. The section reserves space so the page does not jump while the widget loads. With no code or app block, it shows your Book button instead.</p>
+      </div>
     </div>
   </section>
 
-  <section id="staff">
-    <h2>Staff &amp; metaobjects</h2>
-    <p class="lede">Enter each team member once; they appear in the booking dropdown and the Staff list section everywhere.</p>
-    <div class="card">
-      <h3>Set up the staff metaobject</h3>
+  <section id="services">
+    <h2>Services</h2>
+    <p class="lede">A product that needs no shipping is a service. You can add a few optional details with product metafields (<strong>Settings → Custom data → Products → Add definition</strong>).</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Metafield</th><th scope="col">Type</th><th scope="col">What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>custom.duration_minutes</code></td><td>Integer</td><td>Shows the length ("1 hr 30 min") on cards, in the service menu and on the product page.</td></tr>
+          <tr><td><code>custom.price_from</code></td><td>True or false</td><td>Shows "From" before the price, for services whose price depends on the client.</td></tr>
+          <tr><td><code>custom.book_label</code></td><td>Single line text</td><td>Replaces "Book now" on this service's button, for example "Reserve" or "Request a time".</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">To show a service like a retail product instead, turn off <strong>Theme settings → Booking → Show products that need no shipping as services</strong>.</p>
+    <div class="step">
+      <h3>Policy summary</h3>
+      <p>Services show a short "Good to know" note under the buy button for your cancellation and deposit terms. Edit its text and link in the theme editor on the product page; it can also show on every product.</p>
+    </div>
+  </section>
+
+  <section id="cart">
+    <h2>Cart</h2>
+    <div class="step">
+      <h3>Slide-out cart or cart page</h3>
+      <p><strong>Theme settings → Cart → Cart type</strong>. The slide-out cart opens from the cart icon, after adding to cart, and when a booking app opens the cart. Without JavaScript the cart icon still leads to the cart page.</p>
+    </div>
+    <div class="step">
+      <h3>Quick add</h3>
+      <p><strong>Theme settings → Cart → Show quick add on product cards</strong>. Products with one variant add to the cart in one tap; products with options link to their page. Services keep their Book link, and quick add never appears on product pages, so booking apps always find the one product form there.</p>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Team</h2>
+    <p class="lede">The <strong>Team</strong> section shows portraits, roles, specialties and a "Book with" button for each person. Add people as blocks in the theme editor, or keep them once as metaobjects and show them anywhere.</p>
+    <div class="step">
+      <h3>Team members as metaobjects</h3>
       <ol>
-        <li><strong>Settings → Custom data → Metaobjects → Add definition</strong>, named <em>Staff member</em> (type <code>staff_member</code>).</li>
-        <li>Fields: <code>name</code> (single line text), <code>photo</code> (file), <code>role</code>, <code>specialties</code>, <code>booking_link</code> (URL).</li>
-        <li>Enable <strong>Storefronts</strong> access in the definition's options.</li>
-        <li>Add your team under <strong>Content → Metaobjects</strong>.</li>
+        <li><strong>Settings → Custom data → Metaobjects → Add definition</strong>, type <code>staff_member</code>, with Storefronts access on.</li>
+        <li>Add any of these fields (all optional): <code>name</code>, <code>photo</code>, <code>role</code>, <code>specialties</code>, <code>bio</code>, <code>booking_link</code>, <code>portfolio_link</code>.</li>
+        <li>Add your team under <strong>Content → Metaobjects</strong>, then set the Team section's source to metaobjects.</li>
       </ol>
-      <p>No metaobjects yet? The Staff list section also works with editor blocks, and the booking form accepts a comma-separated staff list.</p>
     </div>
   </section>
 
   <section id="sections">
-    <h2>Roster's sections</h2>
-    <div class="card"><h3>Service menu</h3><p>Restaurant-style price list with durations. Link a row to a product and its live price and duration take over automatically.</p></div>
-    <div class="card"><h3>Before &amp; after</h3><p>Drag-to-compare image slider — keyboard and touch accessible, no apps.</p></div>
-    <div class="card"><h3>Staff list · Testimonials · Service packages</h3><p>Team grid with per-person booking, review cards with star ratings, and a membership/packages pricing table.</p></div>
-    <div class="card"><h3>Business info</h3><p>Opening hours with a live “Open now” badge, tap-to-call, directions link, trust badges — and LocalBusiness structured data for Google, generated from the same hours you type.</p></div>
-    <div class="card"><h3>Sticky book bar</h3><p>A persistent “Book now” bar (mobile-first) that hides itself whenever the buy buttons are already on screen. Configure it under the Footer group.</p></div>
+    <h2>Sections</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Section</th><th scope="col">For</th></tr></thead>
+        <tbody>
+          <tr><td>Announcement bar</td><td>Short messages above the header, each with an optional link. Visitors step through them; nothing moves on its own.</td></tr>
+          <tr><td>Hero</td><td>Your headline, a short line of text, a booking button and an image.</td></tr>
+          <tr><td>Service menu</td><td>A printed-menu price list: categories, lengths, "From" prices and price tiers, in a list, two columns or cards. A row linked to a product shows its live price and length.</td></tr>
+          <tr><td>Before and after</td><td>A comparison slider that works with a mouse, touch and the keyboard.</td></tr>
+          <tr><td>Product row</td><td>Products from one collection, such as "Book a service" or "Take care at home".</td></tr>
+          <tr><td>Testimonials</td><td>Client quotes with ratings. Review apps can add their blocks here.</td></tr>
+          <tr><td>Team</td><td>Your people, with booking links. See <a href="#team">Team</a>.</td></tr>
+          <tr><td>Packages</td><td>Memberships and packages side by side, linked to products.</td></tr>
+          <tr><td>FAQ</td><td>Questions and answers that also describe themselves to search engines.</td></tr>
+          <tr><td>Hours and location</td><td>Weekly and holiday hours, an "Open now" badge, phone, directions and local business data.</td></tr>
+          <tr><td>Gift a treatment</td><td>Your gift card, with each amount as a one-tap button.</td></tr>
+          <tr><td>Booking</td><td>A booking app's block or your tool's embed code. See <a href="#booking">Booking</a>.</td></tr>
+          <tr><td>Image with text, Rich text, Video</td><td>Your story, a welcome note, a studio tour. Videos load only when a visitor chooses Play.</td></tr>
+          <tr><td>Custom Liquid</td><td>Your own code, with Roster's spacing and colors.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The booking bar for phones lives in the footer group of the theme editor. It steps aside while the product's own buy buttons are on screen.</p>
   </section>
 
   <section id="faq">
     <h2>FAQ</h2>
-    <details><summary>Do I need a booking app?</summary><p>No. Roster records booking requests (date, time window, staff, intake answers) on the order itself. If you want live calendar availability, Roster works alongside appointment apps — their widgets drop into the product page via app blocks.</p></details>
-    <details><summary>Where do I see a customer's booking details?</summary><p>On the order in your Shopify admin — the details are listed under the line item.</p></details>
-    <details><summary>Can I sell products as well as services?</summary><p>Yes. Products without the <em>service</em> template get a standard product page — retail, gift cards, and services live side by side.</p></details>
-    <details><summary>How do memberships work?</summary><p>The Service packages section presents your plans; link each card to a product. For recurring billing, add a subscriptions app (e.g. Shopify Subscriptions, free) and attach a selling plan — Roster shows the purchase options automatically.</p></details>
-    <details><summary>Why doesn't the staff dropdown show my team?</summary><p>Check the metaobject definition uses field key <code>name</code> (or <code>staff_member</code>) and that Storefronts access is enabled. Roster also falls back to the Booking form block's comma-separated staff list.</p></details>
-    <details><summary>Can I change colors and fonts?</summary><p>Everything: Theme settings → Colors / Typography. Roster ships five coordinated schemes; all components follow your choices, including the booking form.</p></details>
-    <details><summary>How do I style checkout to match?</summary><p>Checkout is configured by Shopify per store: Settings → Checkout → Customize, set your brand colors and logo there.</p></details>
-    <details><summary>Does Roster support other languages?</summary><p>Roster inherits Shopify's translation system; all theme strings are translatable via the default translation editor.</p></details>
+    <details><summary>Do I need a booking app?</summary><p>You need some booking tool, because Roster does not take bookings itself. That can be a Shopify booking app, or an outside tool such as Fresha, Vagaro, Square, GlossGenius or Calendly linked from Theme settings → Booking.</p></details>
+    <details><summary>Which booking apps work with Roster?</summary><p>Apps that add a block to the product page or open the cart through Shopify's standard storefront actions. Roster keeps the standard product form and buy button that these apps look for.</p></details>
+    <details><summary>Can I sell retail products too?</summary><p>Yes. Products that need shipping get the full retail product page, cart and quick add, side by side with your services.</p></details>
+    <details><summary>How do memberships work?</summary><p>The Packages section presents your plans; link each one to a product. For recurring billing, add a subscriptions app (Shopify Subscriptions is free) and give the product a selling plan. Roster shows the purchase options automatically.</p></details>
+    <details><summary>Why does the Team section not show my metaobjects?</summary><p>Check that the definition's type is <code>staff_member</code>, that Storefronts access is on, and that the section's source is set to metaobjects.</p></details>
+    <details><summary>Can I change colors and fonts?</summary><p>Yes, in Theme settings → Colors and Typography. Roster has five color schemes; every section lets you pick one.</p></details>
+    <details><summary>How do I make checkout match?</summary><p>Checkout is styled per store by Shopify: Settings → Checkout → Customize.</p></details>
+    <details><summary>Can I translate the theme?</summary><p>Yes. Every word in the theme can be changed in Online Store → Themes → Edit default theme content, or translated with Shopify's Translate and Adapt app.</p></details>
   </section>
 
   <section id="support">
     <h2>Support</h2>
-    <p class="lede">We answer every request within <strong>two business days</strong>. Include your store URL so we can help fast. Bug fixes for theme issues are always free.</p>
+    <p class="lede">We answer every request within <strong>two business days</strong>. Please include your store URL. Fixes for theme bugs are always free.</p>
     <form action="https://formspree.io/f/mppzkrjp" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="Roster support request">
       <div class="row">
-        <div><label for="s-name">Your name</label><input id="s-name" name="name" required></div>
-        <div><label for="s-email">Email</label><input id="s-email" name="email" type="email" required></div>
+        <div><label for="s-name">Your name</label><input id="s-name" name="name" autocomplete="name" required></div>
+        <div><label for="s-email">Email</label><input id="s-email" name="email" type="email" autocomplete="email" required></div>
       </div>
       <label for="s-store">Store URL</label>
       <input id="s-store" name="store_url" placeholder="your-store.myshopify.com" required>
-      <label for="s-desc">What's happening?</label>
-      <textarea id="s-desc" name="description" placeholder="Describe the problem, including the page where it occurs." required></textarea>
+      <label for="s-desc">What is happening?</label>
+      <textarea id="s-desc" name="description" placeholder="Describe the problem and the page where it happens." required></textarea>
       <label for="s-file">Screenshot or file (optional)</label>
       <input id="s-file" name="attachment" type="file">
       <button type="submit">Send support request</button>
     </form>
-    <p style="color: var(--ink-soft); font-size: .85rem;">Custom-code tutorials: we gladly point you at the right file and approach, but modifications beyond theme settings are the merchant's responsibility and may not survive theme updates — always duplicate your theme before editing code.</p>
+    <p class="note">We are glad to point you to the right file for a small code change, but changes beyond theme settings are yours to maintain and may not survive theme updates. Duplicate your theme before editing code.</p>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">Roster — a Shopify theme by Golnaz Design Co · © 2026</div>
+  <div class="wrap">Roster, a Shopify theme by Golnaz Design Co · © 2026</div>
 </footer>
 
 </body>
